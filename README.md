@@ -1,2 +1,2 @@
 # inflation_prediction_model
-A model to predict inflation in multiple countries
+model attempting to predict future inflation for different countries

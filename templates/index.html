@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Global Inflation Prediction</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 jumbotron text-center">
+          <h1>Global Inflation/Deflation Prediction Dashboard</h1>
+          <h3>Enter the details below to predict the inflation/deflation</h3>
+        </div>
+      </div>
+      <img src="https://moneyandmarkets.com/wp-content/uploads/2021/08/inflation-outlook.jpg"/>
+
+        <p> </p>
+        <!-- creating dropdown to select the country -->
+        <form action="/predict" method="POST" class="form">
+            <div class="fieldset">
+              <label>Select Country</label>
+              <select id="selDataset" class = 'country' name = 'country'>
+                <!-- value refers to the country id that the model uses to predict -->
+                <option value="0">Afghanistan</option>
+                <option value="1">Albania</option>
+                <option value="2">Algeria</option>
+                <option value="3">Angola</option>
+                <option value="4">Antigua and Barbuda</option>
+                <option value="5">Armenia</option>
+                <option value="6">Aruba</option>
+                <option value="7">Australia</option>
+                <option value="8">Azerbaijan</option>
+                <option value="9">Bahamas, The</option>
+                <option value="10">Bahrain</option>
+                <option value="11">Bangladesh</option>
+                <option value="12">Barbados</option>
+                <option value="13">Belarus</option>
+                <option value="14">Benin</option>
+                <option value="15">Bhutan</option>
+                <option value="16">Bolivia</option>
+                <option value="17">Bosnia and Herzegovina</option>
+                <option value="18">Botswana</option>
+                <option value="19">Brazil</option>
+                <option value="20">Brunei Darussalam</option>
+                <option value="21">Bulgaria</option>
+                <option value="22">Burkina Faso</option>
+                <option value="23">Burundi</option>
+                <option value="24">Cabo Verde</option>
+                <option value="25">Canada</option>
+                <option value="26">Chile</option>
+                <option value="27">China</option>
+                <option value="28">Colombia</option>
+                <option value="29">Comoros</option>
+                <option value="30">Congo, Dem. Rep.</option>
+                <option value="31">Costa Rica</option>
+                <option value="32">Cote d'lvoire</option>
+                <option value="33">Croatia</option>
+                <option value="34">Czech Republic</option>
+                <option value="35">Dominica</option>
+                <option value="36">Dominican Republic</option>
+                <option value="37">Egypt, Arab Rep.</option>
+                <option value="38">Eswatini</option>
+                <option value="39">Ethiopia</option>
+                <option value="40">Fiji</option>
+                <option value="41">Gambia, The</option>
+                <option value="42">Georgia</option>
+                <option value="43">Grenada</option>
+                <option value="44">Guatemala</option>
+                <option value="45">Guyana</option>
+                <option value="46">Haiti</option>
+                <option value="47">Honduras</option>
+                <option value="48">Hong Kong SAR, China</option>
+                <option value="49">Hungary</option>
+                <option value="50">Iceland</option>
+                <option value="51">India</option>
+                <option value="52">Indonesia</option>
+                <option value="53">Iran, Islamic Rep.</option>
+                <option value="54">Iraq</option>
+                <option value="55">Israel</option>
+                <option value="56">Italy</option>
+                <option value="57">Jamaica</option>
+                <option value="58">Japan</option>
+                <option value="59">Jordan</option>
+                <option value="60">Kenya</option>
+                <option value="61">Korea, Rep.</option>
+                <option value="62">Kosovo</option>
+                <option value="63">Kuwait</option>
+                <option value="64">Kyrgyz Republic</option>
+                <option value="65">Lao PDR</option>
+                <option value="66">Lebanon</option>
+                <option value="67">Lesotho</option>
+                <option value="68">Liberia</option>
+                <option value="69">Libya</option>
+                <option value="70">Macao SAR, China</option>
+                <option value="71">Madagascar</option>
+                <option value="72">Malawi</option>
+                <option value="73">Malaysia</option>
+                <option value="74">Maldives</option>
+                <option value="75">Mali</option>
+                <option value="76">Malta</option>
+                <option value="77">Mauritania</option>
+                <option value="78">Mauritius</option>
+                <option value="79">Mexico</option>
+                <option value="80">Micronesia, Fed. Sts.</option>
+                <option value="81">Moldova</option>
+                <option value="82">Mongolia</option>
+                <option value="83">Montenegro</option>
+                <option value="84">Mozambique</option>
+                <option value="85">Myanmar</option>
+                <option value="86">Namibia</option>
+                <option value="87">Netherlands</option>
+                <option value="88">New Zealand</option>
+                <option value="89">Nicaragua</option>
+                <option value="90">Niger</option>
+                <option value="91">Nigeria</option>
+                <option value="92">North Macedonia</option>
+                <option value="93">Norway</option>
+                <option value="94">Oman</option>
+                <option value="95">Pakistan</option>
+                <option value="96">Panama</option>
+                <option value="97">Papua New Guinea</option>
+                <option value="98">Paraguay</option>
+                <option value="99">Peru</option>
+                <option value="100">Philippines</option>
+                <option value="101">Qatar</option>
+                <option value="102">Romania</option>
+                <option value="103">Russian Federation</option>
+                <option value="104">Rwanda</option>
+                <option value="105">Samoa</option>
+                <option value="106">San Marino</option>
+                <option value="107">Sao Tome and Principe</option>
+                <option value="108">Senegal</option>
+                <option value="109">Serbia</option>
+                <option value="110">Seychelles</option>
+                <option value="111">Sierra Leone</option>
+                <option value="112">Singapore</option>
+                <option value="113">Solomon Islands</option>
+                <option value="114">South Africa</option>
+                <option value="115">Sri Lanka</option>
+                <option value="116">St. Kitts and Nevis</option>
+                <option value="117">St. Lucia</option>
+                <option value="118">St. Vincent and the Grenadines</option>
+                <option value="119">Suriname</option>
+                <option value="120">Sweden</option>
+                <option value="121">Switzerland</option>
+                <option value="122">Tajikistan</option>
+                <option value="123">Tanzania</option>
+                <option value="124">Thailand</option>
+                <option value="125">Timor-Leste</option>
+                <option value="126">Togo</option>
+                <option value="127">Tonga</option>
+                <option value="128">Trinidad and Tobago</option>
+                <option value="129">Uganda</option>
+                <option value="130">Ukraine</option>
+                <option value="131">United Kingdom</option>
+                <option value="132">United States</option>
+                <option value="133">Uruguay</option>
+                <option value="134">Vanuatu</option>
+                <option value="135">Venezuela, RB</option>
+                <option value="136">Vietnam</option>
+                <option value="137">West Bank and Gaza</option>
+                <option value="138">Yemen, Rep.</option>
+                <option value="139">Zambia</option>
+                <option value="140">Zimbabwe</option>
+                       
+              
+                             
+              </select>
+            </div>
+            <p></p>
+
+        
+            <div class="fieldset">
+              <label>Enter the year</label>
+              <input class="year" name="year"/>
+            </div>
+            <p></p>
+
+        
+          <div class="fieldset">
+            <label>Enter the GDP(%)</label>
+            <input class="gdp" name="gdp"/>
+          </div>
+          <p></p>
+
+        
+          <div class="fieldset">
+            <label>Enter the Interest Rate</label>
+            <input class="int" name="int"/>
+          </div>
+          <p></p>
+
+        
+          <div class="fieldset">
+            <label>Enter the Unemployment Rate </label>
+            <input class="unemp" name="unemp"/>
+          </div>
+          <input type="submit" class="button" value="Predict">
+          <p></p>  
+        
+        
+        </form> 
+    
+      
+    </div>
+</body>
+
+
+<!-- <div class='tableauPlaceholder' id='viz1685574618307' style='position: relative'><noscript><a href='#'><img alt='Dashboard 3 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ai&#47;airline_16855746022770&#47;Dashboard3&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='airline_16855746022770&#47;Dashboard3' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ai&#47;airline_16855746022770&#47;Dashboard3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1685574618307');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='650px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='650px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script> -->
+
+
+</html>
+
+
+      </div>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- <script src="./app.js"></script> -->
+
+  </body>
+</html>
