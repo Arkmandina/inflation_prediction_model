@@ -6,9 +6,9 @@ To build upon our knowledge and interest of world inflation this team has used d
 
 ## Requirements
 
-Python, Anaconda Prompt, Jupyter Notebook, pgAdmin4, Visual Studio Code, Tableau
-Packages: pandas, numpy, sklearn, matplotlib, pickle, sqlalchemy, config, 
-Algorithms: Random Forest Classifier
+* Python, Anaconda Prompt, Jupyter Notebook, pgAdmin4, Visual Studio Code, Tableau
+* Packages: pandas, numpy, sklearn, matplotlib, pickle, sqlalchemy, config, 
+* Algorithms: Random Forest Classifier
 
 ### How the code works:
 1.	Run the initial imports required in the jupyter notebook. 
