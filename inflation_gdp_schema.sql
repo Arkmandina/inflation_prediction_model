@@ -9,6 +9,6 @@ CREATE TABLE inflation_gdp(
 	interestRate DOUBLE PRECISION not null,
 	unemployment DOUBLE PRECISION not null,
 	outcome integer not null
-)
+);
 
 select * from inflation_gdp;
